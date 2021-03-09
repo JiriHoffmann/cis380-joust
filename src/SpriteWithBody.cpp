@@ -5,6 +5,7 @@
 #include "Sprite.hpp"
 #include <Box2D/Box2D.h>
 
+// Meters to pixels 
 const float M2P = 20;
 const float P2M = 1 / M2P;
 
