@@ -11,7 +11,7 @@
 #include "Interfaces.hpp"
 #include "Sprite.hpp"
 #include <SDL2/SDL.h>
-#include <box2d/box2d.h>
+#include <Box2D/Box2D.h>
 #include <vector>
 
 class Collision: public UGameObject {
