@@ -8,15 +8,12 @@
 
 class Sprite : public DUGameObject {
 	public:
-		Sprite(std::string Image);
-        	Sprite(SDL_Surface* inputSurface);
-		~Sprite();
-		void draw();	
-	private:
-		Vector3 velocity;
-	
-	friend class Collision;
+		Sprite(std::string Image, double x, double y) ;
+		Sprite(SDL_Surface *inputSurface);
 
-};
+		~Sprite();
+		void draw();
+
+	};
 
 #endif

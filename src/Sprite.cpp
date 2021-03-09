@@ -4,7 +4,8 @@
 #include "Engine.hpp"
 #include "Sprite.hpp"
 
-Sprite::Sprite(std::string Image){
+Sprite::Sprite(std::string Image, double x, double y)
+{
 	surface = IMG_Load(Image.c_str());
 	if( surface == NULL ){
 		SDL_Log("Unable to load Sprite.");
@@ -19,9 +20,8 @@ Sprite::Sprite(std::string Image){
 	rect->y = 0;
 	rect->w = surface->w;
 	rect->h = surface->h;
-	velocity.setX(0);
-	velocity.setY(0);
-	velocity.setZ(0);
+	position.setX(x);
+	position.setY(y);
 }
 
 Sprite::Sprite(SDL_Surface* inputSurface){
@@ -39,9 +39,6 @@ Sprite::Sprite(SDL_Surface* inputSurface){
 	rect->y = 0;
 	rect->w = surface->w;
 	rect->h = surface->h;
-	velocity.setX(0);
-	velocity.setY(0);
-	velocity.setZ(0);
 }
 
 Sprite::~Sprite(){
