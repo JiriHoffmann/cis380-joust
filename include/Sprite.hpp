@@ -8,7 +8,7 @@
 
 class Sprite : public DUGameObject {
 	public:
-		Sprite(std::string Image, double x, double y) ;
+		Sprite(std::string Image, double x, double y, double w, double h);
 		Sprite(SDL_Surface *inputSurface);
 
 		~Sprite();

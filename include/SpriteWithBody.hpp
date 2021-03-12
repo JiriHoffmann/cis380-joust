@@ -10,7 +10,7 @@
 
 class SpriteWithBody : public Sprite {
 	public:
-		SpriteWithBody(std::string Image, double x, double y);
+		SpriteWithBody(std::string Image, double x, double y, double w, double h);
 		SpriteWithBody(SDL_Surface *inputSurface);
 
 		~SpriteWithBody();

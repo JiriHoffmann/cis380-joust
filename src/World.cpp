@@ -5,8 +5,8 @@
 #include <Box2D/Box2D.h>
 
 // Meters to pixels 
-const float M2P = 20;
-const float P2M = 1 / M2P;
+const float M2P = 50.0;
+
 
 World::World(b2Vec2 gravity)
 {
@@ -22,23 +22,24 @@ World::~World()
 
 void World::update(double delta)
 {
-    world->Step(1.0/30.0,8,3); 
+    world->Step(1.0/60.0,8,3); 
 
 }
 
 void World::addRect(SpriteWithBody* object, bool dynamic){
     b2BodyDef bodydef;
-    bodydef.position.Set(object->position.getX() * P2M, object->position.getY() * P2M);
+    bodydef.position.Set(object->position.getX() / M2P , object->position.getY() / M2P);
     bodydef.allowSleep = !dynamic;
     bodydef.type = dynamic ? b2_dynamicBody : b2_staticBody;
+    bodydef.fixedRotation = true;
     b2Body *body = world->CreateBody(&bodydef);
 
     b2PolygonShape shape;
-    shape.SetAsBox(P2M * object->rect->h / 2, P2M * object->rect->w / 2);
+    shape.SetAsBox( (object->rect->w / 2) / M2P, (object->rect->h / 2) / M2P);
 
     b2FixtureDef fixturedef;
     fixturedef.shape = &shape;
-    fixturedef.density = 0.1;
+    fixturedef.density = 1;
     body->CreateFixture(&fixturedef);
     object->setBody(body);
 }

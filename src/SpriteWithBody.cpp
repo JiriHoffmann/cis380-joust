@@ -6,10 +6,9 @@
 #include <Box2D/Box2D.h>
 
 // Meters to pixels 
-const float M2P = 20;
-const float P2M = 1 / M2P;
+const float M2P = 50.0;
 
-SpriteWithBody::SpriteWithBody(std::string Image, double x, double y): Sprite(Image, x, y){
+SpriteWithBody::SpriteWithBody(std::string Image, double x, double y, double w, double h): Sprite(Image, x, y, w, h){
 }
 
 SpriteWithBody::SpriteWithBody(SDL_Surface* inputSurface): Sprite(inputSurface){
@@ -21,8 +20,8 @@ SpriteWithBody::~SpriteWithBody(){
 }
 
 void SpriteWithBody::update(double delta){
-	position.setX( body->GetPosition().x * M2P);
-    position.setY( body->GetPosition().y * M2P);
+	position.setX( body->GetPosition().x* M2P );
+    position.setY( body->GetPosition().y* M2P );
 }
 
 

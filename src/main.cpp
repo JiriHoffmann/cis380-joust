@@ -23,12 +23,12 @@ main(int argc, char **argv)
 	// Create the physics engine
 	World w(b2Vec2(0.0, 9.81));
 	// // Make an ostrich and add to scene. Should update and draw.
-	Ostrich* b = new Ostrich("./assets/ostrich.png", 10, 10);
+	Ostrich* b = new Ostrich("./assets/ostrich.png", 300, 300);
 	w.addRect(b, true);
-	SpriteWithBody *s = new SpriteWithBody("./assets/surface.png", 10, 600);
-	SpriteWithBody *s2 = new SpriteWithBody("./assets/surface.png", 110, 600);
-	SpriteWithBody *s3 = new SpriteWithBody("./assets/surface.png", 210, 600);
-	SpriteWithBody *s4 = new SpriteWithBody("./assets/surface.png", 310, 600);
+	SpriteWithBody *s = new SpriteWithBody("./assets/surface.png", 375,200, 300,10);
+	SpriteWithBody *s2 = new SpriteWithBody("./assets/surface.png", 0, 600, 1050,10);
+	SpriteWithBody *s3 = new SpriteWithBody("./assets/surface.png", 0, 400, 250,10);
+	SpriteWithBody *s4 = new SpriteWithBody("./assets/surface.png", 880, 400,250,10);
 	w.addRect(s, false);
 	w.addRect(s2, false);
 	w.addRect(s3, false);
