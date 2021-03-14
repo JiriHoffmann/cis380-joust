@@ -41,6 +41,19 @@ main(int argc, char **argv)
 	one.addDrawable(s3);
 	one.addDrawable(s4);
 
+	Ostrich* b1 = new Ostrich("./assets/ostrich.png", 700, 100);
+	Ostrich* b2 = new Ostrich("./assets/ostrich.png", 800, 500);
+	Ostrich* b3 = new Ostrich("./assets/ostrich.png", 100, 100);
+	w.addRect(b1, true);
+	w.addRect(b2, true);
+	w.addRect(b3, true);
+	one.addUpdateable(b1);
+	one.addDrawable(b1);
+	one.addUpdateable(b2);
+	one.addDrawable(b2);
+	one.addUpdateable(b3);
+	one.addDrawable(b3);
+
 	one.addUpdateable(b);
 	one.addDrawable(b);
 	one.addUpdateable(&w);
