@@ -19,6 +19,19 @@ Ostrich::~Ostrich()
 void Ostrich::update(double delta)
 {
     SpriteWithBody::update(delta);
+    if (position.getX() > 1024 + WIDTH)
+    {
+        body->SetTransform(b2Vec2((-WIDTH)/M2P,body->GetPosition().y),body->GetAngle());
+
+    } else if(position.getX() < -WIDTH){
+        body->SetTransform(b2Vec2((1024+WIDTH)/M2P,body->GetPosition().y),body->GetAngle());
+    }
+
+    if(position.getY()< 5){
+        body->SetLinearVelocity(b2Vec2(body->GetLinearVelocity().x, 0));
+        b2Vec2 force(0, 1.0);
+        body->ApplyLinearImpulse(force, body->GetWorldCenter(), true);
+    }
 }
 
 void Ostrich::draw()

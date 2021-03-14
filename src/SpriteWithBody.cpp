@@ -5,8 +5,6 @@
 #include "Sprite.hpp"
 #include <Box2D/Box2D.h>
 
-// Meters to pixels 
-const float M2P = 50.0;
 
 SpriteWithBody::SpriteWithBody(std::string Image, double x, double y, double w, double h): Sprite(Image, x, y, w, h){
 }
@@ -20,6 +18,7 @@ SpriteWithBody::~SpriteWithBody(){
 }
 
 void SpriteWithBody::update(double delta){
+	
 	position.setX( body->GetPosition().x* M2P );
     position.setY( body->GetPosition().y* M2P );
 }

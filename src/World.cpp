@@ -5,9 +5,6 @@
 #include <Box2D/Box2D.h>
 #include "ContactListener.hpp"
 
-// Meters to pixels 
-const float M2P = 50.0;
-
 
 World::World(b2Vec2 gravity)
 {

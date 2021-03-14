@@ -42,7 +42,7 @@ void Engine::run(){
 	}
 	bool quit = false;
 	SDL_Event event;
-	last = SDL_GetTicks();
+	current = SDL_GetTicks();
 	cumulative = 0;
 	while(!quit){
 		if(cumulative>=1000){

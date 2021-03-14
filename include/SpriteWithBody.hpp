@@ -8,6 +8,10 @@
 #include "Utility.hpp"
 #include "Sprite.hpp"
 
+
+// Meters to pixels 
+const float M2P = 50.0;
+
 class SpriteWithBody : public Sprite {
 	public:
 		SpriteWithBody(std::string Image, double x, double y, double w, double h);
