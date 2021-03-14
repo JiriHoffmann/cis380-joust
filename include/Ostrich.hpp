@@ -10,14 +10,14 @@
 class Ostrich : public SpriteWithBody
 {
 public:
-    Ostrich(std::string path, double x, double y);
+    Ostrich(std::string path, double x, double y, std::string type);
     ~Ostrich();
     void update(double delta);
     void draw();
-    void left(double delta);
-    void right(double delta);
-    void up(double delta);
-
+    void left();
+    void right();
+    void up();
+    void takeHit(bool isOnTop);
 };
 
 #endif

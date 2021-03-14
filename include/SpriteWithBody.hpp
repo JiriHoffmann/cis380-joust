@@ -14,16 +14,18 @@ const float M2P = 50.0;
 
 class SpriteWithBody : public Sprite {
 	public:
-		SpriteWithBody(std::string Image, double x, double y, double w, double h);
+		SpriteWithBody(std::string Image, double x, double y, double w, double h, std::string ObjectType);
 		SpriteWithBody(SDL_Surface *inputSurface);
 
 		~SpriteWithBody();
     	void update(double delta);
 		void draw();
         void setBody(b2Body *body);
+		std::string getType();
 
 	protected:
         b2Body *body;
+		std::string type;
 
 	friend class World;
 	};

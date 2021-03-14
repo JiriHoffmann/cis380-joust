@@ -13,6 +13,7 @@ class Sprite : public DUGameObject {
 
 		~Sprite();
 		void draw();
+		
 
 	};
 

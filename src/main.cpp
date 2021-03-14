@@ -4,7 +4,7 @@
 #include "Engine.hpp"
 #include "HUD.hpp"
 #include "Ostrich.hpp"
-// #include "Surface.hpp"
+#include "PlayerOstrich.hpp"
 
 
 
@@ -23,15 +23,15 @@ main(int argc, char **argv)
 	// Create the physics engine
 	World w(b2Vec2(0.0, 9.81));
 	// // Make an ostrich and add to scene. Should update and draw.
-	Ostrich* b = new Ostrich("./assets/ostrich.png", 300, 300);
+	PlayerOstrich* b = new PlayerOstrich("./assets/ostrich.png", 300, 300);
 	w.addRect(b, true);
 	// TOP Platform
-	SpriteWithBody *s = new SpriteWithBody("./assets/surface.png", 375,200, 300,10);
+	SpriteWithBody *s = new SpriteWithBody("./assets/surface.png", 375,200, 300,10, "ground");
 	// MIDDLE Platforms
-	SpriteWithBody *s2 = new SpriteWithBody("./assets/surface.png", -50, 400, 300,10); // left
-	SpriteWithBody *s3 = new SpriteWithBody("./assets/surface.png", 800, 400, 300,10); // right
+	SpriteWithBody *s2 = new SpriteWithBody("./assets/surface.png", -50, 400, 300,10, "ground"); // left
+	SpriteWithBody *s3 = new SpriteWithBody("./assets/surface.png", 800, 400, 300,10, "ground"); // right
 	// BOTTOM Platform
-	SpriteWithBody *s4 = new SpriteWithBody("./assets/surface.png", -100, 600, 1250,10);
+	SpriteWithBody *s4 = new SpriteWithBody("./assets/surface.png", -100, 600, 1250,10, "ground");
 	w.addRect(s, false);
 	w.addRect(s2, false);
 	w.addRect(s3, false);
@@ -41,9 +41,9 @@ main(int argc, char **argv)
 	one.addDrawable(s3);
 	one.addDrawable(s4);
 
-	Ostrich* b1 = new Ostrich("./assets/ostrich.png", 700, 100);
-	Ostrich* b2 = new Ostrich("./assets/ostrich.png", 800, 500);
-	Ostrich* b3 = new Ostrich("./assets/ostrich.png", 100, 100);
+	Ostrich* b1 = new Ostrich("./assets/ostrich.png", 700, 100, "enemy");
+	Ostrich* b2 = new Ostrich("./assets/ostrich.png", 800, 500, "enemy");
+	Ostrich* b3 = new Ostrich("./assets/ostrich.png", 100, 100, "enemy");
 	w.addRect(b1, true);
 	w.addRect(b2, true);
 	w.addRect(b3, true);
@@ -57,12 +57,7 @@ main(int argc, char **argv)
 	one.addUpdateable(b);
 	one.addDrawable(b);
 	one.addUpdateable(&w);
-	auto b_up = [b](double delta) { b->up(delta); };
-	auto b_left = [b](double delta) { b->left(delta); };
-	auto b_right = [b](double delta) { b->right(delta); };
-	one.addKeyEvent( SDLK_w, b_up );
-	one.addKeyEvent( SDLK_a, b_left );
-	one.addKeyEvent( SDLK_d, b_right );
+
 
 	// Add the HUD
 	HUD* h = new HUD();

@@ -5,6 +5,9 @@
 #include "Utility.hpp"
 
 class GameObject {
+	public:
+		Vector3 getPosition();
+
 	protected:
 		Vector3 position;
 };

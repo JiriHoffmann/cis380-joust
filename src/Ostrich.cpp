@@ -7,7 +7,7 @@
 const double WIDTH = 50;
 const double HEIGHT = 50;
 
-Ostrich::Ostrich(std::string Image, double x, double y) : SpriteWithBody(Image, x, y, WIDTH, HEIGHT)
+Ostrich::Ostrich(std::string Image, double x, double y, std::string type) : SpriteWithBody(Image, x, y, WIDTH, HEIGHT, type)
 {
 }
 
@@ -39,20 +39,25 @@ void Ostrich::draw()
     Sprite::draw();
 }
 
-void Ostrich::left(double delta)
+void Ostrich::left()
 {
     b2Vec2 force(-5.0, 1.0);
     body->ApplyLinearImpulse(force, body->GetWorldCenter(), true);
 }
 
-void Ostrich::right(double delta)
+void Ostrich::right()
 {
     b2Vec2 force(5.0, 1.0);
     body->ApplyLinearImpulse(force, body->GetWorldCenter(), true);
 }
 
-void Ostrich::up(double delta)
+void Ostrich::up()
 {
     b2Vec2 force(0.0, -5.0);
     body->ApplyLinearImpulse(force, body->GetWorldCenter(), true);
+}
+
+
+void Ostrich::takeHit(bool isOnTop){
+    SDL_Log("enemy took hit, is on top: %d", isOnTop? 1 : 0 );
 }

@@ -40,5 +40,6 @@ void World::addRect(SpriteWithBody* object, bool dynamic){
     fixturedef.shape = &shape;
     fixturedef.density = 1;
     body->CreateFixture(&fixturedef);
+    body->SetUserData(object);
     object->setBody(body);
 }

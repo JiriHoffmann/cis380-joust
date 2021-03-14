@@ -4,3 +4,8 @@
 Drawable::Drawable(){
 	rect = new SDL_Rect();
 }
+
+
+Vector3 GameObject::getPosition(){
+	return position;
+}
