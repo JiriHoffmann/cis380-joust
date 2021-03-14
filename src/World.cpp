@@ -3,6 +3,7 @@
 #include "SpriteWithBody.hpp"
 #include <SDL2/SDL.h>
 #include <Box2D/Box2D.h>
+#include "ContactListener.hpp"
 
 // Meters to pixels 
 const float M2P = 50.0;
@@ -12,6 +13,7 @@ World::World(b2Vec2 gravity)
 {
     SDL_Log("Creating world...");
     world = new b2World(gravity);
+    world->SetContactListener(new ContactListener());
     SDL_Log("Created with requested gravity.");
 }
 
