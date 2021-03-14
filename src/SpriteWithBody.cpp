@@ -18,9 +18,8 @@ SpriteWithBody::~SpriteWithBody(){
 }
 
 void SpriteWithBody::update(double delta){
-	
-	position.setX( body->GetPosition().x* M2P );
-    position.setY( body->GetPosition().y* M2P );
+	position.setX( body->GetPosition().x* M2P - rect->w/2);
+    position.setY( body->GetPosition().y* M2P - rect->h/2);
 }
 
 

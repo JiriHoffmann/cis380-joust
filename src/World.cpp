@@ -22,15 +22,15 @@ World::~World()
 void World::update(double delta)
 {
     world->Step(1.0/60.0,8,3); 
-
 }
 
 void World::addRect(SpriteWithBody* object, bool dynamic){
     b2BodyDef bodydef;
-    bodydef.position.Set(object->position.getX() / M2P , object->position.getY() / M2P);
+    bodydef.position.Set((object->position.getX() + object->rect->w/2)/ M2P , (object->position.getY()+object->rect->h/2)/ M2P);
     bodydef.allowSleep = !dynamic;
     bodydef.type = dynamic ? b2_dynamicBody : b2_staticBody;
     bodydef.fixedRotation = true;
+	bodydef.angle = 0;
     b2Body *body = world->CreateBody(&bodydef);
 
     b2PolygonShape shape;
