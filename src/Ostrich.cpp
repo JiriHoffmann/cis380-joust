@@ -19,12 +19,12 @@ Ostrich::~Ostrich()
 void Ostrich::update(double delta)
 {
     SpriteWithBody::update(delta);
-    if (position.getX() > 1024 + WIDTH)
+    if (position.getX() > 1024)
     {
-        body->SetTransform(b2Vec2((-WIDTH)/M2P,body->GetPosition().y),body->GetAngle());
+        body->SetTransform(b2Vec2((-WIDTH/5)/M2P,body->GetPosition().y),body->GetAngle());
 
     } else if(position.getX() < -WIDTH){
-        body->SetTransform(b2Vec2((1024+WIDTH)/M2P,body->GetPosition().y),body->GetAngle());
+        body->SetTransform(b2Vec2((1024-WIDTH/5)/M2P,body->GetPosition().y),body->GetAngle());
     }
 
     if(position.getY()< 5){
